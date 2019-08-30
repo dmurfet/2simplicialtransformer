@@ -2,6 +2,19 @@
 
 This is the public repository for the paper "Logic and the 2-Simplicial Transformer" by James Clift, Dmitry Doryn, Daniel Murfet and James Wallbridge. The initial release contains the simplicial and relational agents, environment, training notebooks and videos of rollouts of the trained agents.
 
+## Trained agent weights
+
+In the `experiments` folder we collect the checkpoints of the eight agents described in the paper. Reconstructing the agent from these checkpoints requires some expertise with Ray RLlib.
+
+* simplicial agent A = 30-7-19-A
+* simplicial agent B = 1-8-19-A
+* simplicial agent C = 23-7-19-A
+* simplicial agent D = 13-8-19-C
+* relational agent A = 4-8-19-A
+* relational agent B = 12-6-19-A
+* relational agent C = 13-8-19-A
+* relational agent D = 13-6-19-C
+
 ## Videos
 
 The video rollouts are provided for the best training run of the simplicial agent (simplicial agent A of the paper). The videos are organised by puzzle type, with 335C meaning the third episode sampled on puzzle type 335. Videos are not cherry-picked, and include episodes where the agent opens the bridge. Figure 6 of the paper is step 8 of episode 335A, Figure 7 is step 18 of 325C, Figure 8 is step 13 of episode 335A, Figure 9 is step 29 of episode 335E.
