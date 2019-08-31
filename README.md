@@ -44,7 +44,7 @@ The video rollouts are provided for the best training run of the simplicial agen
 
 ## Installation
 
-The following instructions assume you know how to set up TensorFlow, and cover the other aspects of setting up a blank GCP or AWS instance to a point where they can run our training notebooks. Our training was done under Ray version `0.7.0.dev2` and we do not make any assurances that the code will even run on later versions of Ray. As detailed in the paper, our head nodes (the ones on which we run the training notebooks) have either a P100 or K80 GPU, and the worker nodes have no GPU.
+The following instructions assume you know how to set up TensorFlow, and cover the other aspects of setting up a blank GCP or AWS instance to a point where they can run our training notebooks. Our training was done under Ray version `0.7.0.dev2` and TensorFlow `1.13.1` and we do not make any assurances that the code will even run on later versions. As detailed in the paper, our head nodes (the ones on which we run the training notebooks) have either a P100 or K80 GPU, and the worker nodes have no GPU.
 
 ```
 sudo apt-get update
