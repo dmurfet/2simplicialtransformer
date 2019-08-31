@@ -9,7 +9,7 @@ This is the public repository for the paper "Logic and the 2-Simplicial Transfor
 
 ## Trained agent weights
 
-In the `experiments` folder we collect the checkpoints of the eight agents described in the paper. Reconstructing the agent from these checkpoints requires some expertise with Ray RLlib.
+In the `experiments` folder we collect some checkpoints of the eight agents described in the paper. Reconstructing the agent from these checkpoints requires some expertise with Ray RLlib.
 
 * simplicial agent A = 30-7-19-A
 * simplicial agent B = 1-8-19-A
@@ -19,6 +19,8 @@ In the `experiments` folder we collect the checkpoints of the eight agents descr
 * relational agent B = 12-6-19-A
 * relational agent C = 13-8-19-A
 * relational agent D = 13-6-19-C
+
+For some of the agents the very last checkpoint is "bad", in the sense that the winrate decreased from its converged value (this is due to our use of a fixed learning rate over the entire course of training), and we are distributing the last good checkpoint, as well as a sample of earlier checkpoints. We are happy to share the entire checkpoint history, but these files approach 500Mb for some of the agents and we do not currently have a good distribution method. Nonetheless if you want the files [get in touch](mailto:d.murfet@unimelb.edu.au) and we can work something out.
 
 ## Videos
 
