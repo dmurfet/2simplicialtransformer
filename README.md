@@ -11,7 +11,7 @@ Main files:
 - Videos (see below)
 - Trained agent weights (see below)
 
-There is a brief training guide in `notebooks/README.md` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect). Note that we use a patched version of several of the files from Ray, see the installation instructions for details.
+There is a brief training guide in `notebooks/README.md` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray RLlib that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect). Note that we use a patched version of several of the files from RLlib, see the installation instructions for details.
 
 ## Trained agent weights
 
