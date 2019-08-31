@@ -2,10 +2,71 @@
 
 This is the public repository for the paper "Logic and the 2-Simplicial Transformer" by James Clift, Dmitry Doryn, Daniel Murfet and James Wallbridge. The initial release contains the simplicial and relational agents, environment, training notebooks and videos of rollouts of the trained agents. This is **research code** and **some assembly may be required**. If you have problems getting the code to run, or want to request additional data not provided here, please [email Daniel](mailto:d.murfet@unimelb.edu.au).
 
-- Notebooks for running experiments
-- notes-implementation.md
-- training guide
-- Ray version
+Main files:
+
+- Relational agent: `agent/agent_relational.py`
+- Simplicial agent: `agent/agent_simplicial.py`
+- Environment: `env/bridge_boxworld.py`
+- Training notebooks: `notebooks/`
+- Videos (see below)
+- Trained agent weights (see below)
+
+There is a brief training guide in `notebooks/README.md` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect).
+
+## Installation
+
+The following instructions assume you know how to set up TensorFlow, and cover the other aspects of setting up a blank GCP or AWS instance to a point where they can run our training notebooks. Our training was done under Ray version `0.7.0.dev2` and we do not make any assurances that the code will even run on later versions of Ray. As detailed in the paper, our head nodes (the ones on which we run the training notebooks) have either a P100 or K80 GPU, and the worker nodes have no GPU.
+
+```
+sudo apt-get update
+sudo apt install python-pip
+sudo apt install python3-dev python3-pip
+sudo apt install cmake
+sudo apt-get install zlib1g-dev
+sudo apt install git
+pip3 install --user tensorflow-gpu
+pip3 install -U dask
+pip3 install --user ray[rllib]
+pip3 install --user ray[debug]
+pip3 install jupyter
+pip3 install -U matplotlib
+pip3 install psutil
+pip3 install --upgrade gym
+sudo apt-get install ffmpeg
+sudo apt-get install pssh
+sudo apt-get install keychain
+pip3 install -U https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.7.0.dev2-cp36-cp36m-manylinux1_x86_64.whl
+```
+
+On the CPU-only machines use `pip3 install --user tensorflow`
+
+More installation:
+
+```
+git clone https://github.com/ray-project/ray
+git clone https://github.com/dmurfet/simplicialtransformer.git
+cd ~/simplicialtransformer/; git config credential.helper store; git fetch
+git clone https://github.com/kpot/keras-transformer.git
+cd keras-transformer;pip3 install --user .
+ln -s ~/simplicialtransformer/python/boxworld_v2.py ~/.local/lib/python3.6/site-packages/boxworld_v2.py
+ln -s ~/simplicialtransformer/python/boxworld_v3.py ~/.local/lib/python3.6/site-packages/boxworld_v3.py
+ln -s ~/simplicialtransformer/python/boxworld_v4.py ~/.local/lib/python3.6/site-packages/boxworld_v4.py
+ln -s ~/simplicialtransformer/python/boxworld_v5.py ~/.local/lib/python3.6/site-packages/boxworld_v5.py
+ln -s ~/simplicialtransformer/python/boxworld_agent_v1.py ~/.local/lib/python3.6/site-packages/boxworld_agent_v1.py
+ln -s ~/simplicialtransformer/python/boxworld_agent_v2.py ~/.local/lib/python3.6/site-packages/boxworld_agent_v2.py
+cp ~/simplicialtransformer/python/policy_evaluator-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/rllib/evaluation/policy_evaluator.py
+cp ~/simplicialtransformer/python/impala-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/rllib/agents/impala/impala.py
+cp ~/simplicialtransformer/python/pbt-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/tune/schedulers/pbt.py
+```
+
+Reboot after this to fix the PATH. You'll also need to open the port `6379` for Redis and the `8888` port for Jupyter in the console Security Groups tab, otherwise RLlib won't be able to initialise the cluster (resp. the Jupyter notebook will not be remotely accessible).
+
+**Jupyter setup** (for head nodes only): To set up Jupyter as a remote service, follow [these instructions](https://jupyter-notebook.readthedocs.io/en/latest/public_server.html) (including making a keypair) *except* you need to use `c.NotebookApp.ip = '0.0.0.0'` rather than `c.NotebookApp.ip = '*'` as they say. To get Jupyter to run on startup you'll need to first create an `rc.local` file (on Ubuntu 18 this is no longer shipped standard) see [this](https://vpsfix.com/community/server-administration/no-etc-rc-local-file-on-ubuntu-18-04-heres-what-to-do/). Then add this line to `rc.local` (for Melbourne machines, otherwise use `murfetd` in place of `ubuntu`)
+
+```
+cd /home/ubuntu && su ubuntu -c "/home/ubuntu/.local/bin/jupyter notebook &"
+```
+
 
 ## Trained agent weights
 
