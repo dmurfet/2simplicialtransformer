@@ -2,6 +2,11 @@
 
 This is the public repository for the paper "Logic and the 2-Simplicial Transformer" by James Clift, Dmitry Doryn, Daniel Murfet and James Wallbridge. The initial release contains the simplicial and relational agents, environment, training notebooks and videos of rollouts of the trained agents.
 
+- Notebooks for running experiments
+- notes-implementation.md
+- training guide
+- Ray version
+
 ## Trained agent weights
 
 In the `experiments` folder we collect the checkpoints of the eight agents described in the paper. Reconstructing the agent from these checkpoints requires some expertise with Ray RLlib.
