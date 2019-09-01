@@ -11,7 +11,7 @@ Main files:
 - Videos (see below)
 - Trained agent weights (see below)
 
-There is a brief training guide in `notebooks/README.md` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect).
+There is a brief training guide in `notebooks/README.md` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray RLlib that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect). Note that we use a patched version of several of the files from RLlib, see the installation instructions for details.
 
 ## Trained agent weights
 
@@ -44,7 +44,7 @@ The video rollouts are provided for the best training run of the simplicial agen
 
 ## Installation
 
-The following instructions assume you know how to set up TensorFlow, and cover the other aspects of setting up a blank GCP or AWS instance to a point where they can run our training notebooks. Our training was done under Ray version `0.7.0.dev2` and we do not make any assurances that the code will even run on later versions of Ray. As detailed in the paper, our head nodes (the ones on which we run the training notebooks) have either a P100 or K80 GPU, and the worker nodes have no GPU.
+The following instructions assume you know how to set up TensorFlow, and cover the other aspects of setting up a blank GCP or AWS instance to a point where they can run our training notebooks. Our training was done under Ray version `0.7.0.dev2` and TensorFlow `1.13.1` and we do not make any assurances that the code will even run on later versions. As detailed in the paper, our head nodes (the ones on which we run the training notebooks) have either a P100 or K80 GPU, and the worker nodes have no GPU.
 
 ```
 sudo apt-get update
