@@ -72,25 +72,14 @@ On the CPU-only machines use `pip3 install --user tensorflow`
 More installation:
 
 ```
-git clone https://github.com/ray-project/ray
-git clone https://github.com/dmurfet/simplicialtransformer.git
-cd ~/simplicialtransformer/; git config credential.helper store; git fetch
+git clone https://github.com/dmurfet/2simplicialtransformer.git
 git clone https://github.com/kpot/keras-transformer.git
 cd keras-transformer;pip3 install --user .
-ln -s ~/simplicialtransformer/python/boxworld_v2.py ~/.local/lib/python3.6/site-packages/boxworld_v2.py
-ln -s ~/simplicialtransformer/python/boxworld_v3.py ~/.local/lib/python3.6/site-packages/boxworld_v3.py
-ln -s ~/simplicialtransformer/python/boxworld_v4.py ~/.local/lib/python3.6/site-packages/boxworld_v4.py
-ln -s ~/simplicialtransformer/python/boxworld_v5.py ~/.local/lib/python3.6/site-packages/boxworld_v5.py
-ln -s ~/simplicialtransformer/python/boxworld_agent_v1.py ~/.local/lib/python3.6/site-packages/boxworld_agent_v1.py
-ln -s ~/simplicialtransformer/python/boxworld_agent_v2.py ~/.local/lib/python3.6/site-packages/boxworld_agent_v2.py
-cp ~/simplicialtransformer/python/policy_evaluator-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/rllib/evaluation/policy_evaluator.py
-cp ~/simplicialtransformer/python/impala-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/rllib/agents/impala/impala.py
-cp ~/simplicialtransformer/python/pbt-0.7.0.dev2-edited.py ~/.local/lib/python3.6/site-packages/ray/tune/schedulers/pbt.py
 ```
 
 Reboot after this to fix the PATH. You'll also need to open the port `6379` for Redis and the `8888` port for Jupyter in the console Security Groups tab, otherwise RLlib won't be able to initialise the cluster (resp. the Jupyter notebook will not be remotely accessible).
 
-**Jupyter setup** (for head nodes only): To set up Jupyter as a remote service, follow [these instructions](https://jupyter-notebook.readthedocs.io/en/latest/public_server.html) (including making a keypair) *except* you need to use `c.NotebookApp.ip = '0.0.0.0'` rather than `c.NotebookApp.ip = '*'` as they say. To get Jupyter to run on startup you'll need to first create an `rc.local` file (on Ubuntu 18 this is no longer shipped standard) see [this](https://vpsfix.com/community/server-administration/no-etc-rc-local-file-on-ubuntu-18-04-heres-what-to-do/). Then add this line to `rc.local` (for Melbourne machines, otherwise use `murfetd` in place of `ubuntu`)
+**Jupyter setup** (for head nodes only): To set up Jupyter as a remote service, follow [these instructions](https://jupyter-notebook.readthedocs.io/en/latest/public_server.html) (including making a keypair) *except* you need to use `c.NotebookApp.ip = '0.0.0.0'` rather than `c.NotebookApp.ip = '*'` as they say. To get Jupyter to run on startup you'll need to first create an `rc.local` file (on Ubuntu 18 this is no longer shipped standard) see [this](https://vpsfix.com/community/server-administration/no-etc-rc-local-file-on-ubuntu-18-04-heres-what-to-do/). Then add this line to `rc.local`
 
 ```
 cd /home/ubuntu && su ubuntu -c "/home/ubuntu/.local/bin/jupyter notebook &"
