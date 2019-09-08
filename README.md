@@ -13,6 +13,8 @@ Main files:
 
 There is a brief training guide in `notebooks/training.ipynb` and brief installation instructions below. In `notes-implementation.md` we collect various notes about training agents with IMPALA in Ray RLlib that might be useful (but as the Ray codebase is evolving quickly, many of the class names in these notes may now be incorrect). Note that we use a patched version of several of the files from RLlib, see the installation instructions for details.
 
+For background on some of the ideas from neuroscience that partly inspired this work, see the talk "[Building models of the world for behavioural control](https://www.youtube.com/watch?v=U5tZJLFokYY)" by Tim Behrens from Cosyne 2018.
+
 ## Videos
 
 The video rollouts are provided for the best training run of the simplicial agent (simplicial agent A of the paper). The videos are organised by puzzle type, with 335C meaning the third episode sampled on puzzle type 335. Videos are not cherry-picked, and include episodes where the agent opens the bridge. There are three episodes of every puzzle type, and extras for the harder puzzles 335, 336. Figure 6 of the paper is step 8 of episode 335A, Figure 7 is step 18 of 325C, Figure 8 is step 13 of episode 335A, Figure 9 is step 29 of episode 335E.
