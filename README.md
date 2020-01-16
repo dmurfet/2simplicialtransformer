@@ -1,6 +1,6 @@
 # Code repository for the 2-simplicial Transformer
 
-This is the public repository for the paper "Logic and the 2-Simplicial Transformer" by James Clift, Dmitry Doryn, Daniel Murfet and James Wallbridge. The initial release contains the simplicial and relational agents, environment, training notebooks and videos of rollouts of the trained agents.
+This is the public repository for the paper "[Logic and the 2-Simplicial Transformer](https://openreview.net/forum?id=rkecJ6VFvr)" by James Clift, Dmitry Doryn, Daniel Murfet and James Wallbridge published at ICLR 2020. The initial release contains the simplicial and relational agents, environment, training notebooks and videos of rollouts of the trained agents.
 
 ## Trained agent weights
 
