@@ -307,7 +307,6 @@ class SimplicialModel(Model):
         
         TRANSFORMER_SIMPLICIAL_DIM = options["custom_options"]["transformer_simplicial_model_dim"]
         TRANSFORMER_MODEL_DIM = options["custom_options"]["transformer_model_dim"]
-        TRANSFORMER_STYLE = options["custom_options"]["transformer_style"]
         TRANSFORMER_NUM_HEADS = options["custom_options"]["transformer_num_heads"]
         TRANSFORMER_DEPTH = options["custom_options"]["transformer_depth"]
         CONV_PADDING = options["custom_options"]["conv_padding"]
